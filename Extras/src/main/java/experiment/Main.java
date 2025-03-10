@@ -7,7 +7,7 @@ public class Main {
     System.out.println("Hello Java World");
     Properties prop = System.getProperties();
     prop.entrySet().stream()
-//        .filter(e -> e.getKey().equals("java.vm.version"))
+        .filter(e -> e.getKey().equals("java.vm.version"))
         .forEach(System.out::println);
 
     Object obj = null;

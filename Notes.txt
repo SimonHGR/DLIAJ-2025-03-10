@@ -1,0 +1,43 @@
+Notes for Deloitte 
+
+Why are you here, what do you want to learn?
+
+New since Java 8:
+9 - modules, private methods in interfaces
+10 - var
+11 - var in lambdas
+14 - switch expressions, arrow form
+15 - text blocks
+16 - records, patterns in instanceof, local enums, local interfaces
+17 - sealed types, strict floating point
+18 - java doc snippets
+21 - record patterns, patterns in switch
+22 - unnamed variables
+23 - Markdown comments
+
+Questions of design?
+- Construction idioms
+- design for change, idioms that support this
+- Variable behavior idioms
+- Functional programming style
+- Stream API
+- Questions of concurrency/threading
+
+Machine for labs;
+Option 1 (best) -- Your own machine with your own config, with Java 17, provided you can share the screen with me to get help/feedback during lab.
+Option 2 (entirely adequate) -- Virtual machine we provide
+Option 3 (not really satisfactory, but better than nothing) your own machine that you cannot share the screen with us.
+
+My git repo should be "read-only". Write your own code in a project and repo of your own. If you edit mine, it'll simply give you merge conflicts when I update it!
+
+Initial assignment:
+- "represent" a student, with name, average grade (gpa), taking several courses (courses are only the textual name)
+- print a list of all students
+- print a list of "smart" students
+- assume that this is the beginning of a long-term, business critical, series of applications (all data in memory)
+- enough sample data to demonstrate but don't get carried away (e.g. three students is [barely] sufficient)
+ 
+
+
+
+
