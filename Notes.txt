@@ -49,6 +49,9 @@ Assignment day 2. Choose among
 - make the student "always correct"
   -- define semantics of "correct" and implement in a method
   -- enforce those semantics at construction and any mutator methods
+ - test out assertions? maybe from the command line
+ - play with var
+ - patterns in instanceof -- try to use this to implement an equals method
 
 
 overall
