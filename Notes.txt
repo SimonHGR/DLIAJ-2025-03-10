@@ -37,7 +37,18 @@ Initial assignment:
 - assume that this is the beginning of a long-term, business critical, series of applications (all data in memory)
 - enough sample data to demonstrate but don't get carried away (e.g. three students is [barely] sufficient)
 
-
+Assignment day 2. Choose among
+- whatever you feel like practicing
+- allow variable length argument list for initializing a student, e.g.
+  new Student("Inaya", 2.7, "Math", "Physics");
+  new Student("Ayo", 3.5, "Algebra");
+  from a single constructor
+- make Student fully immutable, take care of:
+  -- mutable method arguments passed from the caller
+  -- mutable fields returned to the caller
+- make the student "always correct"
+  -- define semantics of "correct" and implement in a method
+  -- enforce those semantics at construction and any mutator methods
 
 
 overall
