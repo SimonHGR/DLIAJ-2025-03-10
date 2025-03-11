@@ -36,7 +36,22 @@ Initial assignment:
 - print a list of "smart" students
 - assume that this is the beginning of a long-term, business critical, series of applications (all data in memory)
 - enough sample data to demonstrate but don't get carried away (e.g. three students is [barely] sufficient)
- 
+
+
+
+
+overall
+5 - awesome
+1 - you're fired
+
+pace
+5 - much too fast
+3 - perfect
+1 - much too slow
+
+content
+5 - awesome
+1 - you're fired
 
 
 
