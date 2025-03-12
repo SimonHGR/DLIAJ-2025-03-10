@@ -53,20 +53,16 @@ Assignment day 2. Choose among
  - play with var
  - patterns in instanceof -- try to use this to implement an equals method
 
-
-overall
-5 - awesome
-1 - you're fired
-
-pace
-5 - much too fast
-3 - perfect
-1 - much too slow
-
-content
-5 - awesome
-1 - you're fired
-
-
-
-
+Assignment day 3
+Goal, we want to be able to create lists of *modified* students.
+For example, if a student takes more than 2 courses, we increase their
+gpa by 0.2. Or if a student takes Quantum Mechanics, we append
+"superstar" to their name
+- function that processes a list of students, and creates a new list of
+  students, but provides a means of creating a modified / derived student
+  object from the original
+- interface that describes "take this student, give me a derived student"
+- two implementations of that interface, for the two outlined behaviors
+  above (one at a time!)
+- add "withXxx" methods (two for the proposal, one at a time) to allow
+  creation of a modified student from a starting student

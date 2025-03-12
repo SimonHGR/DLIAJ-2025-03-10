@@ -1,4 +1,4 @@
-package students4;
+package students5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,6 @@ interface StudentUser {
   void accept(Student s);
 }
 
-
 // could write student to database, or across a network
 // or send them a letter
 class SimpleStudentPrinter implements StudentUser {
@@ -62,11 +61,6 @@ class CongratulateStudent implements StudentUser {
 }
 
 public class Example {
-//  public static void showAll(List<Student> students) {
-//    for (Student s : students) {
-//      System.out.println("> " + s);
-//    }
-//  }
 
   public static void doToAll(List<Student> students, StudentUser operation) {
     for (Student s : students) {
@@ -79,36 +73,6 @@ public class Example {
   // find an "interface" for the separated part that allows the two
   //   parts to cooperate to fulfil the original task
   // find a way to bring the parts back together to perform the required task
-//  private static double threshold = 3.2;
-
-  // the BEHAVIOR that changes is "is this student intersting?"
-  // this BEHAVIOR varies: s.gpa() > 3.2
-  // as a function it becomes boolean isInteresting(Student s) ...
-  // but Java does not treat functions as "first class" members of the language
-  // -- you can't pass them as arguments, or store in variables, or return them
-//  public static void showAllSmart(List<Student> students, double threshold) {
-//    for (Student s : students) {
-//      if (s.gpa() > threshold) { // double threshold
-//        System.out.println(">> " + s);
-//      }
-//    }
-//  }
-//
-//  public static void showAllEnthusiastic(List<Student> students, int threshold) {
-//    for (Student s : students) {
-//      if (s.courses().size() > threshold) {
-//        System.out.println(">>> " + s);
-//      }
-//    }
-//  }
-
-//  public static void showInteresting(List<Student> students, StudentCriterion crit) {
-//    for (Student s : students) {
-//      if (crit.test(s)) {
-//        System.out.println("interesting: " + s);
-//      }
-//    }
-//  }
 
   public static List<Student> getInteresting(List<Student> students, StudentCriterion crit) {
     List<Student> interesting = new ArrayList<>();
@@ -129,30 +93,13 @@ public class Example {
         Student.of("Hua", 3.9, "Math", "Physics")
     );
 
-//    showAll(roster);
     doToAll(roster, new SimpleStudentPrinter());
     System.out.println("----------------------------");
-//    showInteresting(roster, new SmartStudent(3.2));
-//    showAll(getInteresting(roster, new SmartStudent(3.2)));
     doToAll(getInteresting(roster, new SmartStudent(3.2)), new CongratulateStudent());
-//    showAllSmart(roster, 3.2);
     System.out.println("----------------------------");
-    // caller is able, but NOT REQUIRED, to take responsibility for this value
-    // UNLESS we make it private and put some checks on the value
-//    threshold = 2.2;
-//    showAllSmart(roster);
-
-    // ALTERNATIVELY, if it's a parameter, the client MUST KNOW and TAKE RESPONSIBILITY
-    // for this value
-//    showAllSmart(roster, 2.2);
-//    showInteresting(roster, new SmartStudent(2.2));
-//    showAll(getInteresting(roster, new SmartStudent(2.2)));
     doToAll(getInteresting(roster, new SmartStudent(2.2)), new SimpleStudentPrinter());
 
     System.out.println("----------------------------");
-//    showAllFairlySmart(roster);
-//    showAllEnthusiastic(roster, 2);
-//    showInteresting(roster, new EnthusiasticStudent());
     doToAll(getInteresting(roster, new EnthusiasticStudent()), new CongratulateStudent());
   }
 }
