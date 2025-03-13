@@ -73,3 +73,13 @@ Assignment 1 day 4
 - "generify" the doToAll method, so it uses the generic version of the
   StudentUser interface
 - make sure the code still works
+
+Assignement 2 day 4
+Using students in streams, unless otherwise specified, each goal should end with:
+.forEach(x -> System.out.println(x));
+- print all students
+- print "Ishan has grade 3.2" (or similar!) for all students
+- print "Ishan is smart with grade 3.2" (or similar!) for all smart students
+- print "Ishan is enthusiastic and takes 2 courses" for all smart students
+- determine if any student is smart and enthusiastic (allowed to NOT FINISH as above)
+- try to print all the courses (including duplicates) one per line (not possible with the tools I have demonstrated)

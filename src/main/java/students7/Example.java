@@ -2,6 +2,9 @@ package students7;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 record Student(String name, double gpa, List<String> courses) {
   public static Student of(String name, double gpa, String... courses) {
@@ -17,44 +20,50 @@ record Student(String name, double gpa, List<String> courses) {
   }
 }
 
-interface StudentCriterion {
-  boolean test(Student s);
-}
+//interface Predicate<E> {
+//  boolean test(E s);
+//}
 
-interface Modifier<E> {
-  E apply(E s);
+interface Function<A, R> {
+  R apply(A a);
 }
+//interface UnaryOperator<E> {
+//  E apply(E s);
+//}
 
-interface StudentUser {
-  void accept(Student s);
-}
+//interface Consumer<E> {
+//  void accept(E s);
+//}
 
 public class Example {
 
-  public static <E> List<E> map(List<E> items, Modifier<E> operation) {
-    List<E> results = new ArrayList<>();
+  public static <E, F> List<F> map(List<E> items, Function<E, F> operation) {
+    List<F> results = new ArrayList<>();
     for (E s : items) {
-      E newItem = operation.apply(s);
+      F newItem = operation.apply(s);
       results.add(newItem);
     }
     return List.copyOf(results);
   }
 
-  public static void doToAll(List<Student> students, StudentUser operation) {
-    for (Student s : students) {
+  //  public static <E> List<E> map(List<E> items, UnaryOperator<E> operation) {
+//    List<E> results = new ArrayList<>();
+//    for (E s : items) {
+//      E newItem = operation.apply(s);
+//      results.add(newItem);
+//    }
+//    return List.copyOf(results);
+//  }
+//
+  public static <E> void forEach(List<E> items, Consumer<E> operation) {
+    for (E s : items) {
       operation.accept(s);
     }
   }
 
-  // identify what changes independently
-  // separate it out
-  // find an "interface" for the separated part that allows the two
-  //   parts to cooperate to fulfil the original task
-  // find a way to bring the parts back together to perform the required task
-
-  public static List<Student> getInteresting(List<Student> students, StudentCriterion crit) {
-    List<Student> interesting = new ArrayList<>();
-    for (Student s : students) {
+  public static <E> List<E> filter(List<E> items, Predicate<E> crit) {
+    List<E> interesting = new ArrayList<>();
+    for (E s : items) {
       if (crit.test(s)) {
         interesting.add(s);
       }
@@ -73,33 +82,45 @@ public class Example {
 
 
     System.out.println("All: ----------------------------");
-    doToAll(roster, s -> System.out.println("> " + s));
+    forEach(roster, s -> System.out.println("> " + s));
 
     System.out.println("Smart: ----------------------------");
-    doToAll(getInteresting(roster, s -> s.gpa() > 3.2),
+    forEach(filter(roster, s -> s.gpa() > 3.2),
         s -> System.out.println("Congratulations " + s.name() + " your gpa of " + s.gpa() + " is awesome!"));
 
     System.out.println("Unenthusiastic: ----------------------------");
-    doToAll(getInteresting(roster, s -> s.courses().size() < 3),
+    forEach(filter(roster, s -> s.courses().size() < 3),
         s -> System.out.println("Congratulations " + s.name() + " your gpa of " + s.gpa() + " is awesome!"));
 
     System.out.println("Smart-ish:----------------------------");
-    doToAll(getInteresting(roster, s -> s.gpa() > 2.2), s -> System.out.println("> " + s));
+    forEach(filter(roster, s -> s.gpa() > 2.2), s -> System.out.println("> " + s));
 
     System.out.println("Enthusiastic: ----------------------------");
-    doToAll(getInteresting(roster, s -> s.courses().size() > 2),
+    forEach(filter(roster, s -> s.courses().size() > 2),
         s -> System.out.println("Congratulations " + s.name() + " your gpa of " + s.gpa() + " is awesome!"));
 
     System.out.println("with extra credit: ----------------------------");
-    Modifier<Student> extraCredit =
+//    UnaryOperator<Student> extraCredit =
+//        s -> s.courses().size() > 2
+//            ? new Student(s.name(), s.gpa() + 0.2, s.courses()) : s;
+//    forEach(map(roster, extraCredit), s -> System.out.println("> " + s));
+
+    Function<Student, Student> extraCredit =
         s -> s.courses().size() > 2
             ? new Student(s.name(), s.gpa() + 0.2, s.courses()) : s;
-    doToAll(map(roster, extraCredit), s -> System.out.println("> " + s));
+    forEach(map(roster, extraCredit), s -> System.out.println("> " + s));
 
     System.out.println("We love Quantum Mechanics ----------------------------");
-    doToAll(map(roster,
+    forEach(map(roster,
         s -> s.courses().contains("Quantum Mechanics")
             ? new Student(s.name() + "(superstar)", s.gpa(), s.courses()) : s
-      ), s -> System.out.println("> " + s));
+    ), s -> System.out.println("> " + s));
+
+    System.out.println("Messages: ----------------------------");
+    forEach(
+        map(
+            filter(roster, s -> s.gpa() > 3.0),
+            s -> "Welcome to school " + s.name()),
+        s -> System.out.println("> " + s));
   }
 }
