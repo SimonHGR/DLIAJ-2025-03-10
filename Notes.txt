@@ -66,3 +66,10 @@ gpa by 0.2. Or if a student takes Quantum Mechanics, we append
   above (one at a time!)
 - add "withXxx" methods (two for the proposal, one at a time) to allow
   creation of a modified student from a starting student
+
+Assignment 1 day 4
+- In students7
+- "generify" the StudentUser interface
+- "generify" the doToAll method, so it uses the generic version of the
+  StudentUser interface
+- make sure the code still works
