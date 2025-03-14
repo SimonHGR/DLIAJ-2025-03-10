@@ -124,7 +124,8 @@ class Example2 { // use stream!
         .stream()
         .filter(s -> s.gpa() > 3.0)
         .map(s -> "Student " + s.name() + " has grade " + s.gpa())
-        .forEach(s -> System.out.println(s));
+//        .forEach(s -> System.out.println(s));
+        .forEach(System.out::println);
 
     System.out.println("Infinite: -------------------------------");
     boolean somethingDividesBy29 = Stream.iterate(1, x -> x + 1)

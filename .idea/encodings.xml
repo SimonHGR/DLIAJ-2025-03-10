@@ -3,6 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Extras/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Extras/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.dcs.provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.dcs.provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.dcs.user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.dcs.user/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
