@@ -1,0 +1,39 @@
+
+Topics Discussed:
+
+validation -- static method
+assertions
+private fields
+always valid objects -- initialization
+always valid objects -- returning mutable field references
+varargs
+late binding, type of reference vs type of object
+casting
+patterns in instanceof
+use of var
+factory or constructor?
+varargs initialization
+always valid objects -- storing mutable arguments from callers 
+always valid objects -- mutation
+equality using patterns in instanceof
+immutability
+records
+hard coded definition of smart
+ -- keep separate what changes independently
+avoid duplication of behavior
+passing behavior as an argument
+lambdas
+generics
+built in interfaces
+streams: map, filter, forEach
+streams: lazy, anyMatch
+stream: flatMap
+stream: produce a result
+method references?
+text blocks
+switch variations
+sealed types
+modules
+concurrency?
+
+
